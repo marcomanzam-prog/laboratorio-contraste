@@ -1,0 +1,193 @@
+
+/*
+==========================================
+LABORATORIO DE CONTRASTE
+PRÁCTICA 20
+
+Alumno: ESCRIBE TU NOMBRE COMPLETO
+
+CSS personalizado para Bootstrap 5.
+==========================================
+*/
+
+/* VARIABLES DE DISEÑO */
+
+:root {
+    --principal: #173b70;
+    --principal-hover: #102c54;
+    --fondo: #f4f7fb;
+    --texto: #243247;
+    --borde: #cbd5e1;
+    --foco: #ffbf47;
+}
+
+/* ESTILOS GENERALES */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    background: linear-gradient(
+        135deg,
+        #102c54,
+        #173b70
+    );
+}
+
+/* ENLACE PARA SALTAR CONTENIDO */
+
+.enlace-saltar:focus {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 2000;
+
+    padding: 12px 18px;
+
+    background-color: #ffffff;
+    color: #102c54;
+
+    border: 3px solid var(--foco);
+    border-radius: 8px;
+}
+
+/* FOCO VISIBLE */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--foco);
+    outline-offset: 3px;
+}
+
+/* TARJETA DEL LABORATORIO */
+
+.laboratorio {
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+}
+
+/* SELECTORES DE COLOR */
+
+.form-control-color {
+    width: 100%;
+    height: 55px;
+    cursor: pointer;
+}
+
+/* VISTA PREVIA */
+
+.vista-previa {
+    background-color: #ffffff;
+    color: #173b70;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+
+    padding: 28px;
+    min-height: 150px;
+}
+
+/* RESULTADOS */
+
+.resultado {
+    background-color: #edf3fa;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.numero-contraste {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #102c54;
+}
+
+.estado-cumple {
+    color: #166534;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.estado-no-cumple {
+    color: #991b1b;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* BOTONES BOOTSTRAP PERSONALIZADOS */
+
+.btn-primary {
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #173b70;
+    --bs-btn-border-color: #173b70;
+
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #102c54;
+    --bs-btn-hover-border-color: #102c54;
+
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #102c54;
+    --bs-btn-active-border-color: #102c54;
+}
+
+/* TABLA */
+
+.table {
+    background-color: #ffffff;
+}
+
+.table th,
+.table td {
+    padding: 13px;
+}
+
+/* RETO FINAL */
+
+.reto {
+    background-color: #edf3fa;
+    border-left: 6px solid var(--principal);
+}
+
+/* PIE DE PÁGINA */
+
+.pie-pagina {
+    background-color: #102c54;
+}
+
+/* RESPONSIVIDAD */
+
+@media (max-width: 767.98px) {
+
+    .encabezado h1 {
+        font-size: 1.8rem;
+    }
+
+    .vista-previa {
+        padding: 20px;
+    }
+
+    .numero-contraste {
+        font-size: 1.7rem;
+    }
+
+}
+
+/* RESPETO A MOVIMIENTO REDUCIDO */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

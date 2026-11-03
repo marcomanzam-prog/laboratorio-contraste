@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <!--
+    ==========================================
+    LABORATORIO DE CONTRASTE DE COLORES
+    Práctica 20 - Accesibilidad web
+
+    Autor del recurso: Docente
+    Alumno: ESCRIBE TU NOMBRE COMPLETO
+
+    Tecnologías:
+    HTML5, CSS3, Bootstrap 5 y JavaScript
+    ==========================================
+    -->
+
+    <title>Laboratorio de contraste | Práctica 20</title>
+
+    <!-- BOOTSTRAP:
+         Framework para diseño responsivo.
+    -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS:
+         Biblioteca de iconos.
+    -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet">
+
+    <!-- CSS PERSONALIZADO:
+         Se carga después de Bootstrap.
+    -->
+    <link rel="stylesheet"
+          href="css/20_laboratorio.css">
+</head>
+
+<body>
+
+    <!-- ACCESIBILIDAD:
+         Permite saltar directamente al contenido.
+    -->
+    <a href="#contenido"
+       class="visually-hidden-focusable enlace-saltar">
+        Saltar al contenido principal
+    </a>
+
+    <!-- BOOTSTRAP:
+         py-4: espacio vertical.
+         text-white: texto blanco.
+    -->
+    <header class="encabezado text-white py-4">
+        <div class="container">
+            <p class="mb-2 fw-semibold">
+                PRÁCTICA 20 · ACCESIBILIDAD WEB
+            </p>
+
+            <h1 class="fw-bold">
+                <i class="bi bi-palette me-2"
+                   aria-hidden="true"></i>
+                Laboratorio de contraste
+            </h1>
+
+            <p class="mb-0">
+                Experimenta con colores y descubre
+                si tus combinaciones son accesibles.
+            </p>
+        </div>
+    </header>
+
+    <main id="contenido" tabindex="-1">
+
+        <!-- SECCIÓN 1: INSTRUCCIONES -->
+        <section class="container my-4"
+                 aria-labelledby="tituloInstrucciones">
+
+            <h2 id="tituloInstrucciones"
+                class="h4 fw-bold">
+                1. ¿Cómo utilizar el laboratorio?
+            </h2>
+
+            <!-- BOOTSTRAP:
+                 alert alert-info:
+                 mensaje informativo.
+            -->
+            <div class="alert alert-info" role="note">
+                Selecciona dos colores, observa
+                la vista previa y revisa si cumplen
+                los niveles de contraste WCAG.
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN 2: LABORATORIO -->
+        <section class="container my-4"
+                 aria-labelledby="tituloLaboratorio">
+
+            <h2 id="tituloLaboratorio"
+                class="h4 fw-bold mb-3">
+                2. Selecciona tus colores
+            </h2>
+
+            <!-- BOOTSTRAP:
+                 card: componente tipo tarjeta.
+                 shadow-sm: sombra suave.
+            -->
+            <div class="card shadow-sm laboratorio">
+                <div class="card-body p-4">
+
+                    <!-- BOOTSTRAP:
+                         row g-4: cuadrícula.
+                         col-md-6: dos columnas
+                         desde pantallas medianas.
+                    -->
+                    <div class="row g-4">
+
+                        <div class="col-12 col-md-6">
+                            <label for="colorTexto"
+                                   class="form-label fw-bold">
+                                Color del texto
+                            </label>
+
+                            <!-- HTML:
+                                 input color abre el
+                                 selector de colores.
+                                 BOOTSTRAP:
+                                 form-control-color.
+                            -->
+                            <input
+                                type="color"
+                                id="colorTexto"
+                                class="form-control
+                                       form-control-color"
+                                value="#173b70">
+
+                            <label for="hexTexto"
+                                   class="form-label mt-3">
+                                Código HEX del texto
+                            </label>
+
+                            <input
+                                type="text"
+                                id="hexTexto"
+                                class="form-control"
+                                value="#173b70"
+                                maxlength="7"
+                                spellcheck="false"
+                                aria-describedby="ayudaHex">
+
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="colorFondo"
+                                   class="form-label fw-bold">
+                                Color del fondo
+                            </label>
+
+                            <input
+                                type="color"
+                                id="colorFondo"
+                                class="form-control
+                                       form-control-color"
+                                value="#ffffff">
+
+                            <label for="hexFondo"
+                                   class="form-label mt-3">
+                                Código HEX del fondo
+                            </label>
+
+                            <input
+                                type="text"
+                                id="hexFondo"
+                                class="form-control"
+                                value="#ffffff"
+                                maxlength="7"
+                                spellcheck="false">
+
+                        </div>
+
+                    </div>
+
+                    <p id="ayudaHex"
+                       class="form-text mt-3">
+                        Utiliza códigos de seis dígitos,
+                        por ejemplo: #173b70.
+                    </p>
+
+                    <!-- VISTA PREVIA -->
+                    <h3 class="h5 fw-bold mt-4">
+                        Vista previa
+                    </h3>
+
+                    <div id="vistaPrevia"
+                         class="vista-previa">
+
+                        <h4 class="fw-bold">
+                            Talleres tecnológicos
+                        </h4>
+
+                        <p class="mb-0">
+                            Consulta los cursos disponibles
+                            y selecciona el que más te interese.
+                        </p>
+                    </div>
+
+                    <!-- RESULTADO -->
+                    <div class="resultado mt-4"
+                         aria-live="polite"
+                         aria-atomic="true">
+
+                        <p class="mb-1">
+                            Relación de contraste
+                        </p>
+
+                        <p id="relacionContraste"
+                           class="numero-contraste">
+                            11.08:1
+                        </p>
+
+                        <p id="resultadoNormalAA"></p>
+                        <p id="resultadoGrandeAA"></p>
+                        <p id="resultadoNormalAAA"></p>
+                        <p id="resultadoGrandeAAA"></p>
+
+                    </div>
+
+                    <!-- BOOTSTRAP:
+                         btn btn-primary:
+                         botón principal.
+                    -->
+                    <button
+                        type="button"
+                        id="copiarCSS"
+                        class="btn btn-primary mt-3">
+
+                        <i class="bi bi-clipboard me-2"
+                           aria-hidden="true"></i>
+                        Copiar combinación CSS
+                    </button>
+
+                    <p id="mensajeCopia"
+                       class="mt-2"
+                       role="status"></p>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN 3: TABLA -->
+        <section class="container my-5"
+                 aria-labelledby="tituloTabla">
+
+            <h2 id="tituloTabla"
+                class="h4 fw-bold mb-3">
+                3. Tabla comparativa de colores
+            </h2>
+
+            <p>
+                Compara combinaciones frecuentes
+                y observa cuáles cumplen WCAG AA.
+            </p>
+
+            <!-- BOOTSTRAP:
+                 table-responsive:
+                 desplazamiento horizontal en móvil.
+                 table table-striped table-hover:
+                 estilos de tabla.
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped
+                              table-hover align-middle">
+
+                    <caption>
+                        Resultados calculados con la
+                        fórmula de contraste WCAG.
+                    </caption>
+
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Texto</th>
+                            <th scope="col">Fondo</th>
+                            <th scope="col">Contraste</th>
+                            <th scope="col">Normal AA</th>
+                            <th scope="col">Grande AA</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaCombinaciones">
+                        <!-- JavaScript genera las filas -->
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN 4: RETO -->
+        <section class="container my-5"
+                 aria-labelledby="tituloReto">
+
+            <div class="reto p-4 rounded-4">
+
+                <h2 id="tituloReto"
+                    class="h4 fw-bold">
+                    4. Reto final del estudiante
+                </h2>
+
+                <p>
+                    Diseña una combinación de colores
+                    accesible para una página escolar.
+                </p>
+
+                <ol>
+                    <li>
+                        Escribe tu nombre completo.
+                    </li>
+                    <li>
+                        Selecciona colores de texto y fondo.
+                    </li>
+                    <li>
+                        Consigue un contraste mínimo
+                        de 4.5:1 para texto normal.
+                    </li>
+                    <li>
+                        Copia el código CSS generado.
+                    </li>
+                    <li>
+                        Utiliza los colores en tu
+                        práctica 20.
+                    </li>
+                    <li>
+                        Explica por qué elegiste
+                        esa combinación.
+                    </li>
+                </ol>
+
+                <!-- BOOTSTRAP:
+                     form-label y form-control:
+                     etiquetas y campos de formulario.
+                -->
+                <label for="nombreAlumno"
+                       class="form-label fw-bold">
+                    Nombre completo del estudiante
+                </label>
+
+                <input
+                    type="text"
+                    id="nombreAlumno"
+                    class="form-control"
+                    placeholder="Escribe tu nombre completo"
+                    autocomplete="name">
+
+                <p class="mt-3 mb-0">
+                    Elaborado por:
+                    <strong id="nombreVisible">
+                        NOMBRE COMPLETO DEL ALUMNO
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="pie-pagina text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">
+                Laboratorio educativo de contraste
+                · HTML, CSS y Bootstrap
+            </p>
+            <p class="mb-0">
+                Práctica 20 · Accesibilidad web
+            </p>
+        </div>
+    </footer>
+
+    <!-- BOOTSTRAP JS:
+         Disponible para componentes interactivos.
+    -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- ==========================================
+         JAVASCRIPT DEL LABORATORIO
+         ========================================== -->
+    <script>
+
+        // Alumno: ESCRIBE TU NOMBRE COMPLETO
+
+        const colorTexto =
+            document.getElementById("colorTexto");
+
+        const colorFondo =
+            document.getElementById("colorFondo");
+
+        const hexTexto =
+            document.getElementById("hexTexto");
+
+        const hexFondo =
+            document.getElementById("hexFondo");
+
+        const vista =
+            document.getElementById("vistaPrevia");
+
+        const relacion =
+            document.getElementById("relacionContraste");
+
+        const nombreAlumno =
+            document.getElementById("nombreAlumno");
+
+        const nombreVisible =
+            document.getElementById("nombreVisible");
+
+        // Convierte un color hexadecimal
+        // a luminancia relativa WCAG.
+        function luminancia(hex) {
+
+            const canales = [1, 3, 5].map(
+                posicion =>
+                    parseInt(
+                        hex.slice(posicion, posicion + 2),
+                        16
+                    ) / 255
+            );
+
+            const lineales = canales.map(valor =>
+                valor <= 0.04045
+                    ? valor / 12.92
+                    : Math.pow((valor + 0.055) / 1.055, 2.4)
+            );
+
+            return (
+                0.2126 * lineales[0] +
+                0.7152 * lineales[1] +
+                0.0722 * lineales[2]
+            );
+        }
+
+        // Calcula la relación de contraste.
+        function calcularContraste(texto, fondo) {
+
+            const a = luminancia(texto);
+            const b = luminancia(fondo);
+
+            return (
+                (Math.max(a, b) + 0.05) /
+                (Math.min(a, b) + 0.05)
+            );
+        }
+
+        // Comprueba si el código HEX es válido.
+        function hexValido(valor) {
+            return /^#[0-9a-fA-F]{6}$/.test(valor);
+        }
+
+        // Devuelve un texto descriptivo
+        // y un indicador visual.
+        function estado(cumple) {
+            return cumple ? "Cumple" : "No cumple";
+        }
+
+        // Actualiza el laboratorio.
+        function actualizar() {
+
+            const texto = colorTexto.value;
+            const fondo = colorFondo.value;
+
+            hexTexto.value = texto;
+            hexFondo.value = fondo;
+
+            vista.style.color = texto;
+            vista.style.backgroundColor = fondo;
+
+            const contraste =
+                calcularContraste(texto, fondo);
+
+            relacion.textContent =
+                contraste.toFixed(2) + ":1";
+
+            const resultados = [
+                ["resultadoNormalAA", 4.5],
+                ["resultadoGrandeAA", 3],
+                ["resultadoNormalAAA", 7],
+                ["resultadoGrandeAAA", 4.5]
+            ];
+
+            const etiquetas = [
+                "Texto normal AA",
+                "Texto grande AA",
+                "Texto normal AAA",
+                "Texto grande AAA"
+            ];
+
+            resultados.forEach((item, indice) => {
+
+                const elemento =
+                    document.getElementById(item[0]);
+
+                const cumple = contraste >= item[1];
+
+                elemento.textContent =
+                    etiquetas[indice] + ": " +
+                    estado(cumple);
+
+                elemento.className =
+                    cumple
+                        ? "estado-cumple"
+                        : "estado-no-cumple";
+            });
+        }
+
+        // Sincroniza los selectores de color.
+        colorTexto.addEventListener("input", actualizar);
+        colorFondo.addEventListener("input", actualizar);
+
+        // Permite escribir un código HEX.
+        hexTexto.addEventListener("change", function() {
+
+            if (hexValido(hexTexto.value)) {
+                colorTexto.value = hexTexto.value;
+            }
+
+            actualizar();
+        });
+
+        hexFondo.addEventListener("change", function() {
+
+            if (hexValido(hexFondo.value)) {
+                colorFondo.value = hexFondo.value;
+            }
+
+            actualizar();
+        });
+
+        // Copiar CSS.
+        document.getElementById("copiarCSS")
+            .addEventListener("click", async function() {
+
+                const codigo =
+                    "color: " + colorTexto.value + ";\n" +
+                    "background-color: " +
+                    colorFondo.value + ";";
+
+                const mensaje =
+                    document.getElementById("mensajeCopia");
+
+                try {
+                    await navigator.clipboard.writeText(codigo);
+
+                    mensaje.textContent =
+                        "Código CSS copiado correctamente.";
+
+                } catch (error) {
+                    mensaje.textContent =
+                        "No se pudo copiar automáticamente. " +
+                        "Selecciona los códigos HEX y cópialos.";
+                }
+            });
+
+        // Nombre visible del estudiante.
+        nombreAlumno.addEventListener("input", function() {
+
+            nombreVisible.textContent =
+                nombreAlumno.value.trim() ||
+                "NOMBRE COMPLETO DEL ALUMNO";
+        });
+
+        // Paleta para la tabla comparativa.
+        const colores = [
+            ["Azul oscuro", "#173b70"],
+            ["Gris claro", "#d1d5db"],
+            ["Negro", "#111827"],
+            ["Blanco", "#ffffff"],
+            ["Turquesa", "#087e8b"],
+            ["Amarillo", "#ffdf80"]
+        ];
+
+        const tabla =
+            document.getElementById("tablaCombinaciones");
+
+        // Genera todas las combinaciones únicas
+        // de dos colores diferentes.
+        for (let i = 0; i < colores.length; i++) {
+
+            for (let j = i + 1; j < colores.length; j++) {
+
+                const primero = colores[i];
+                const segundo = colores[j];
+
+                const contraste = calcularContraste(
+                    primero[1],
+                    segundo[1]
+                );
+
+                const fila =
+                    document.createElement("tr");
+
+                const valores = [
+                    primero[0] + " " + primero[1],
+                    segundo[0] + " " + segundo[1],
+                    contraste.toFixed(2) + ":1",
+                    estado(contraste >= 4.5),
+                    estado(contraste >= 3)
+                ];
+
+                valores.forEach(valor => {
+
+                    const celda =
+                        document.createElement("td");
+
+                    celda.textContent = valor;
+                    fila.appendChild(celda);
+                });
+
+                tabla.appendChild(fila);
+            }
+        }
+
+        // Mostrar resultados iniciales.
+        actualizar();
+
+    </script>
+
+</body>
+</html>
